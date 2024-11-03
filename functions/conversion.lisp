@@ -35,7 +35,12 @@
 (defun print-right (right-side)
   (if (consp right-side)
       (format nil "~a(~{~a~^, ~});~%"
-	      (type-to-string (car right-side)) (cdr right-side))
+	      (type-to-string (car right-side))
+	      (mapcar (lambda (a)
+			(if (symbolp a)
+			    (name-to-string a)
+			    a))
+		      (cdr right-side)))
       (format nil "~a;~%" (if (symbolp right-side)
 			      (name-to-string right-side)
 			      right-side))))

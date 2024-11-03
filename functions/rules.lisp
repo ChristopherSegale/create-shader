@@ -21,7 +21,7 @@
 
 (create-rule :function
   `(format nil
-	   "~a ~a~a~% {~% ~a ~%}~%"
+	   "~a ~a~a~%{~%~a~%}~%"
 	   (type-to-string ,(car args))
 	   ,(name-to-string (cadr args))
 	   ,(args-to-string (caddr args))
