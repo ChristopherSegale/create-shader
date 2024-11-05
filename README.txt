@@ -11,7 +11,7 @@ Example vertex shader:
   (:version 330)
   (:in (:layout (:location 0)) :vec3 v-position)
   (:function :void main nil
-    (:set gl-position (:vec4 v-position 1.0))))
+    (:set "gl_Position" (:vec4 v-position 1.0))))
 
 Example fragment shader:
 (create-shader

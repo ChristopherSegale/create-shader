@@ -7,10 +7,11 @@
       (error "~a must be a keyword to be a valid type." glsl-type)))
 
 (defun name-to-string (glsl-name)
-  (if (symbolp glsl-name)
-      (with-lowercase-printing
-	(substitute #\_ #\- (princ-to-string glsl-name)))
-      (error "Name must be a symbol.")))
+  (cond
+    ((stringp glsl-name) glsl-name)
+    ((symbolp glsl-name) (with-lowercase-printing
+			   (substitute #\_ #\- (princ-to-string glsl-name))))
+    (t (error "Name must be a string or symbol."))))
 
 (defun symbol-to-glsl (sym)
   (cond
